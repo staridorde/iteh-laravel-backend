@@ -20,18 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/user', function() {
-//     $user = User::create([
-//         'name' => 'user',
-//         'email' => 'user@gmail.com',
-//         'password' => 'user'
-//     ]);
+//Route::get('/user', [UserController::class, 'user'])->middleware('auth:api');
 
-//     return $user;
-// });
-
-Route::put('/user/{id}', [UserController::class, 'update']);
-Route::delete('/user/{id}', [UserController::class, 'destroy']);
-Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/users', [UserController::class, 'index']);
-Route::post('/user', [UserController::class, 'store']);
+//Route::put('/user/{id}', [UserController::class, 'update']);
+//Route::delete('/user/{id}', [UserController::class, 'destroy']);
+//Route::get('/user/{id}', [UserController::class, 'show']);
+//Route::get('/users', [UserController::class, 'index']);
+Route::post('/register', [UserController::class, 'register']);

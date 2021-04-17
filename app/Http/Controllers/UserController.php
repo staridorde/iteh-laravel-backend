@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRegisterRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,9 +25,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function register(UserRegisterRequest $request)
     {
-        return User::create($request->all());
+        return User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
     }
 
     /**
@@ -50,7 +56,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->update($request->all());
-        
+
         return $user;
     }
 
@@ -64,4 +70,10 @@ class UserController extends Controller
     {
         return User::find($id)->delete();
     }
+
+    public function user($request)
+    {
+        return $request->user();
+    }
+
 }
