@@ -15,10 +15,10 @@ class CreateBudgetItemsTable extends Migration
     {
         Schema::create('budget_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('budget_id');
+            $table->integer('budget_id')->default(1);
             $table->string('item_name');
             $table->string('type');
-            $table->decimal('amount'); 
+            $table->decimal('amount');
 
             $table->timestamps();
         });

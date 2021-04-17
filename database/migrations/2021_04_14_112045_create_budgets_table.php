@@ -15,8 +15,8 @@ class CreateBudgetsTable extends Migration
     {
         Schema::create('budgets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            
+            $table->integer('user_id')->default(1);
+
 
 
             $table->index('user_id');

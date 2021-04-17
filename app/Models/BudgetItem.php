@@ -9,6 +9,9 @@ class BudgetItem extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+
     public function budget()
     {
         return $this->belongsTo(Budget::class);

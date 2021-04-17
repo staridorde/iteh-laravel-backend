@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Models\User;
+use \App\Http\Controllers\BudgetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::get('/user/{id}', [UserController::class, 'show']);
 //Route::get('/users', [UserController::class, 'index']);
 Route::post('/register', [UserController::class, 'register']);
+
+
+
+Route::get('/budget', [BudgetController::class, 'budget']);
