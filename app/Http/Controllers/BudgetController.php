@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Budget;
+use App\Models\BudgetItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BudgetController extends Controller
 {
@@ -36,7 +38,7 @@ class BudgetController extends Controller
      */
     public function show($id)
     {
-        return Budget::find($id);
+        return BudgetItem::where('budget_id', $id)->get();
     }
 
     /**
