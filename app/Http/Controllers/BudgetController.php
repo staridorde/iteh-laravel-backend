@@ -27,7 +27,7 @@ class BudgetController extends Controller
      */
     public function store(Request $request)
     {
-        return Budget::create($request->all());
+        return BudgetItem::create($request->all());
     }
 
     /**

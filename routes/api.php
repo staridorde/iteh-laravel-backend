@@ -29,11 +29,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', [UserController::class, 'register']);
 
 
-Route::get('/budget/{id}', [BudgetController::class, 'show']);
+//Route::get('/budget/{id}', [BudgetController::class, 'show']);
 Route::get('/budget', [BudgetController::class, 'budget']);
-Route::post('/budget', [BudgetController::class, 'store']);
+//Route::post('/budget', [BudgetController::class, 'store']);
 Route::delete('/budget/{id}', [BudgetController::class, 'destroy']);
 Route::put('/budget/{id}', [BudgetController::class, 'update']);
 
 
 Route::get('/budgetItem/{id}', [BudgetController::class, 'show']);
+Route::post('/budgetItem', [BudgetController::class, 'store']);
