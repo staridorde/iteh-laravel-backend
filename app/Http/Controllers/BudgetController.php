@@ -25,9 +25,14 @@ class BudgetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeBudgetItem(Request $request)
     {
         return BudgetItem::create($request->all());
+    }
+
+    public function store(Request $request)
+    {
+        return Budget::create($request->all());
     }
 
     /**
@@ -63,6 +68,6 @@ class BudgetController extends Controller
      */
     public function destroy($id)
     {
-        return Budget::find($id)->delete();
+        return BudgetItem::find($id)->delete();
     }
 }
